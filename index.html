@@ -1,0 +1,153 @@
+<html>
+<head>
+	<title>Idetify disease with intelligent system</title>
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<script type="text/javascript" src="js/imagenet_classes.js"></script> 
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>  
+	<script type="text/javascript" src="js/loadmodel.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="mobilenet-demo-container">
+			<h3>1st disease to identify :</h3>
+			<div class="demo-wrapper">
+				<div>
+					<button id="load-button" class="input-button" onclick="loadModel()">Covid19</button>
+			
+					<label for="select-file-image" class="input-button">
+						Upload Image
+					</label>
+					<input id="select-file-image" type="file" onchange="loadFile(event)" style="display: none">
+					<div id="progress-box" style="display: none; width: 100% !important;">
+						<img src="assets/loading.gif" id="demo-load" width="100px" />
+						<p style="color: white;">Please wait !</p>
+					</div>
+				</div>
+				<div>
+					<button id="predict-button" class="input-button predict-button" onclick="predButton()">Result</button>
+				</div>
+			</div>
+			<div class="demo-output">
+				<div class="out-box" id="select-file-box" style="display: none;">
+					<img id='test-image' />
+				</div>
+				<div class="out-box" id="predict-box" style="display: none;">
+					<p id="prediction"></p>
+					<br>
+					<p><b style="color: #c2c2c2 !important; font-style: italic; font-weight: 100; font-size: 11px;">Top-5 Predictions</b></p>
+					<ul id="predict-list">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<hr/>
+	<div class="container">
+		<div class="mobilenet-demo-container">
+			<h3>2nd disease to identify: </h3>
+			<div class="demo-wrapper">
+				<div>
+					<button id="load-button" class="input-button" onclick="loadModel()">Pneumonia</button>
+			
+					<label for="select-file-image" class="input-button">
+						Upload Image
+					</label>
+					<input id="select-file-image" type="file" onchange="loadFile(event)" style="display: none">
+					<div id="progress-box" style="display: none; width: 100% !important;">
+						<img src="assets/loading.gif" id="demo-load" width="100px" />
+						<p style="color: white;">Loading model..</p>
+					</div>
+				</div>
+				<div>
+					<button id="predict-button" class="input-button predict-button" onclick="predButton()">Result</button>
+				</div>
+			</div>
+			<div class="demo-output">
+				<div class="out-box" id="select-file-box" style="display: none;">
+					<img id='test-image' />
+				</div>
+				<div class="out-box" id="predict-box" style="display: none;">
+					<p id="prediction"></p>
+					<br>
+					<p><b style="color: #c2c2c2 !important; font-style: italic; font-weight: 100; font-size: 11px;">Top-5 Predictions</b></p>
+					<ul id="predict-list">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr/>
+	<div class="container">
+		<div class="mobilenet-demo-container">
+			<h3>3rd disease to identify</h3>
+			<div class="demo-wrapper">
+				<div>
+					<button id="load-button" class="input-button" onclick="loadModel()">Breast Cancer</button>
+			
+					<label for="select-file-image" class="input-button">
+						Upload Image
+					</label>
+					<input id="select-file-image" type="file" onchange="loadFile(event)" style="display: none">
+					<div id="progress-box" style="display: none; width: 100% !important;">
+						<img src="assets/loading.gif" id="demo-load" width="100px" />
+						<p style="color: white;">Loading model..</p>
+					</div>
+				</div>
+				<div>
+					<button id="predict-button" class="input-button predict-button" onclick="predButton()">Result</button>
+				</div>
+			</div>
+			<div class="demo-output">
+				<div class="out-box" id="select-file-box" style="display: none;">
+					<img id='test-image' />
+				</div>
+				<div class="out-box" id="predict-box" style="display: none;">
+					<p id="prediction"></p>
+					<br>
+					<p><b style="color: #c2c2c2 !important; font-style: italic; font-weight: 100; font-size: 11px;">The Result </b></p>
+					<ul id="predict-list">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr/>
+	<div class="container">
+		<div class="mobilenet-demo-container">
+			<h3>4th disease to identify</h3>
+			<div class="demo-wrapper">
+				<div>
+					<button id="load-button" class="input-button" onclick="loadModel()">Covid19</button>
+			
+					<label for="select-file-image" class="input-button">
+						Upload Image
+					</label>
+					<input id="select-file-image" type="file" onchange="loadFile(event)" style="display: none">
+					<div id="progress-box" style="display: none; width: 100% !important;">
+						<img src="assets/loading.gif" id="demo-load" width="100px" />
+						<p style="color: white;">Loading model..</p>
+					</div>
+				</div>
+				<div>
+					<button id="predict-button" class="input-button predict-button" onclick="predButton()">Result</button>
+				</div>
+			</div>
+			<div class="demo-output">
+				<div class="out-box" id="select-file-box" style="display: none;">
+					<img id='test-image' />
+				</div>
+				<div class="out-box" id="predict-box" style="display: none;">
+					<p id="prediction"></p>
+					<br>
+					<p><b style="color: #c2c2c2 !important; font-style: italic; font-weight: 100; font-size: 11px;">Top-5 Predictions</b></p>
+					<ul id="predict-list">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
